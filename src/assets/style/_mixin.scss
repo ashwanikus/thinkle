@@ -1,0 +1,50 @@
+@use "sass:map";
+
+@mixin fontFace($name, $location) {
+  @font-face {
+    font-family: $name;
+    src: url($location);
+  }
+}
+
+@mixin fontStyle ($size, $family) {
+  font-size: $size;
+  font-family: $family;
+}
+
+// Mobile-First Breakpoints (Min-Width Approach)
+$breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+);
+
+// Mixin for Mobile-First Media Queries
+@mixin break-point($point) {
+  @if map.has-key($breakpoints, $point) {
+    @media (min-width: #{map.get($breakpoints, $point)}) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint #{$point} not found in the map.";
+  }
+}
+
+@mixin custom-media($condition) {
+  @if $condition == landscape {
+    @media screen and (orientation: landscape) {
+      @content;
+    }
+  } @else if $condition == portrait {
+    @media screen and (orientation: portrait) {
+      @content;
+    }
+  } @else if $condition == high-contrast {
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      @content;
+    }
+  }
+}

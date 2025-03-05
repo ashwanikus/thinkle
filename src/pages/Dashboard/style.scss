@@ -1,0 +1,23 @@
+@use '../../assets/style/mixin' as *;
+
+.app-container {
+  display: flex;
+}
+
+.main-content {
+  width: 100vw;
+  height: 100vh;
+  @include break-point(sm){
+    margin-left: 285px;
+    width: calc(100vw - 285px);
+  }
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  @include break-point(sm){
+    margin-left: 80px;
+    width: calc(100vw - 80px);
+  }
+}

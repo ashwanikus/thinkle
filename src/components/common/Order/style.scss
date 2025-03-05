@@ -1,0 +1,141 @@
+@use '../../../assets/style/mixin' as *;
+
+$order-bg: #fff;
+$border-radius: 12px;
+$shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+.order-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-card {
+  background: $order-bg;
+  padding: 16px;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  width: 100%;
+
+  .order-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+
+    .client-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .client-name {
+      font-size: 16px;
+      font-weight: bold;
+      flex-grow: 1;
+    }
+
+    .status {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 14px;
+      display: inline-block;
+
+      &.completed {
+        background: #d4f5d4;
+        color: #2c882c;
+      }
+
+      &.in-progress {
+        background: #d4e5ff;
+        color: #2c5dcd;
+      }
+    }
+  }
+
+  .order-info {
+    font-size: 14px;
+
+    .order-date {
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .order-details {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+
+      .label {
+        font-size: 12px;
+        color: #999;
+      }
+    }
+  }
+}
+
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: $order-bg;
+  border-radius: $border-radius;
+  overflow: hidden;
+  margin-top: 24px;
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+
+  th {
+    background: #f7f7f7;
+    font-weight: bold;
+  }
+
+  tr {
+    border-bottom: 1px solid #eee;
+  }
+
+  .client-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .client-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+
+    &.completed {
+      background: #d4f5d4;
+      color: #2c882c;
+    }
+
+    &.in-progress {
+      background: #d4e5ff;
+      color: #2c5dcd;
+    }
+  }
+}
+

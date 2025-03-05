@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use "./_variable" as *;
+@use "./_mixin" as *;
+@use "./_font" as *;
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--primary-color), .5);
+  border-radius: 5px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: LatoRegular, "Helvetica Neue", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.container{
+  width: 100%;
+  margin: 0 auto;
+  @include break-point(sm){
+    width: map.get($width, sm);
+  }
+  @include break-point(md){
+    width: map.get($width, md);
+  }
+  @include break-point(lg){
+    width: map.get($width, lg);
+  }
+  @include break-point(xl){
+    width: map.get($width, xl);
+  }
+  @include break-point(xxl){
+    width: map.get($width, xxl);
+  }
+}
+
+
+.content__wrapper{
+  padding: 36px 40px;
+}
+
+.content-header{
+  &__title{
+    @include fontStyle(30px, var(--fontRegular));
+    font-weight: 700;
+  }
+
+  &__subtitle{
+    @include fontStyle(18px, var(--fontRegular));
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-top: 12px;
+    display: inline-block;
+  }
+}

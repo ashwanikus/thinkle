@@ -1,0 +1,10 @@
+@use "./_mixin" as *;
+
+$fixed: "../fonts/lato/";
+
+@include fontFace(LatoRegular, '#{$fixed}Lato-Regular.ttf');
+@include fontFace(LatoThin, '#{$fixed}Lato-Thin.ttf');
+@include fontFace(LatoLight, '#{$fixed}Lato-Light.ttf');
+@include fontFace(LatoSemiBold, '#{$fixed}Lato-Semibold.ttf');
+@include fontFace(LatoBold, '#{$fixed}Lato-Bold.ttf');
+@include fontFace(LatoHeavy, '#{$fixed}Lato-Heavy.ttf');

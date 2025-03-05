@@ -1,0 +1,74 @@
+@use '../../../assets/style/mixin' as *;
+
+.earnings-dashboard {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+  @include break-point(sm){
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include break-point(lg){
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.earnings-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  .description {
+    font-size: 14px;
+    color: #777;
+  }
+
+  .amount {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
+  .change {
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+
+    & > span {
+      padding: 4px 6px;
+      border-radius: 2px;
+    }
+
+    .increase {
+      color: green;
+      font-weight: bold;
+      background: #00800057;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .decrease {
+      color: red;
+      font-weight: bold;
+      background: #FFCFCF;
+      border: 0.6px solid rgba(193, 46, 5, 0.20);
+    }
+  }
+}

@@ -1,0 +1,173 @@
+@use '../../../assets/style/mixin' as *;
+
+.sidebar {
+  width: 285px;
+  transition: width 0.3s;
+  background-color: black;
+  color: white;
+  height: 100vh;
+  padding: 24px 18px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &.closed {
+    width: 80px;
+
+    .brand,
+    .menu-header span,
+    .bottom-menu a {
+      display: none;
+    }
+    .sidebar-logo{
+      display: none;
+    }
+  }
+
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+
+    .brand {
+      @include fontStyle(22px, var(--fontRegular));
+      color: yellow;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  }
+
+  .menu {
+    flex-grow: 1;
+    margin-top: 60px;
+
+    .menu-section {
+      margin-bottom: 15px;
+
+      .menu-header {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 12px 15px;
+        text-align: left;
+
+        &:hover {
+          color: yellow;
+        }
+
+        &.active {
+          background-color: yellow;
+          color: black;
+          border-radius: 8px;
+        }
+
+        .rotate {
+          transform: rotate(180deg);
+        }
+
+        &__text{
+          margin-left: 8px;
+          @include fontStyle(16px, var(--fontRegular));
+        }
+
+        &__title{
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 16px;
+        margin: 0;
+
+        li {
+          &:first-child {
+            margin-top: 24px;
+
+          }
+          &:last-child {
+            margin-bottom: 24px;
+
+          }
+
+          a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: gray;
+            text-decoration: none;
+            @include fontStyle(16px, var(--fontRegular));
+            position: relative;
+            padding: 16.5px 0 16.5px 24px;
+
+            &:hover {
+              color: white;
+            }
+
+            &:before {
+              content: "";
+              width: 2px;
+              height: 100%;
+              background: #ffffff;
+              position: absolute;
+              left: 0;
+              top: 0;
+              opacity: 0.2;
+            }
+
+            &.highlight {
+              color: white;
+              font-weight: bold;
+              position: relative;
+
+              &:before {
+                content: "";
+                width: 3px;
+                height: 100%;
+                background: yellow;
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: gray;
+      text-decoration: none;
+      font-size: 14px;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
